@@ -1,0 +1,23 @@
+<div class="container">
+    
+    <div class="row justify-content-center">
+        <div class="col-md-6 mt-5 py-5">
+            <form class="example-form" [formGroup]="LoginForm" (ngSubmit)="onSubmit()" >
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>Email</mat-label>
+                  <input formControlName="email" matInput placeholder="Ex. Pizza" value="Sushi">
+                  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                </mat-form-field>
+              
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>Password</mat-label>
+                  <input formControlName="password" matInput type="{{passwordtype ==true? 'password':'text}}" placeholder="Ex. Pizza" value="Sushi">
+                  <mat-icon click="" matSuffix>remove_red_eye</mat-icon>
+                </mat-form-field>
+                <button mat-raised-button type="submit" [disabled]="LoginForm.invalid" class="text-center" color="primary">Login</button>
+              </form>
+              
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,35 @@
+
+
+
+
+<p>
+  <mat-toolbar style="height:90px" color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <!-- <mat-icon>menu</mat-icon> -->
+    </button>
+    <span>
+      <img width="89px" src="/assets/logo.png" alt="">
+    </span>
+    <span class="example-spacer"></span>
+    <button mat-button [routerLink]="['/admin/home']" routerLinkActive="router-link-active"  >Home</button>
+
+<button mat-button [routerLink]="['/admin/dasboard']" routerLinkActive="router-link-active">Dashboard</button>
+<button mat-button >Report</button>
+
+<button mat-button [matMenuTriggerFor]="setup">Setup</button>
+<mat-menu #setup="matMenu">
+<div class="" *ngFor="let item of zoneSetupbutton">
+  <button  (click)="zoneSetupRoutes(item.route)" mat-menu-item>
+    {{item.title}}
+  </button>
+</div>
+ 
+</mat-menu>
+<button mat-button (click)="logout()" >
+  Logout <mat-icon>logout</mat-icon>
+</button>
+   
+  </mat-toolbar>
+</p>
+
+<router-outlet></router-outlet>

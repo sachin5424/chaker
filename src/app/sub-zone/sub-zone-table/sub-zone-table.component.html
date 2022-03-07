@@ -1,0 +1,75 @@
+<table mat-table [dataSource]="dataSource "  class="mat-elevation-z8">
+   
+       <!--- Note that these columns can be defined in any order.
+             The actual rendered columns are set as a property on the row definition" -->
+     
+       <!-- Position Column -->
+       <ng-container matColumnDef="position">
+         <th mat-header-cell *matHeaderCellDef> S No. </th>
+         <td mat-cell *matCellDef="let element ;  let i = index"> {{i+1}} </td>
+       </ng-container>
+     
+       <!-- Name Column -->
+       <ng-container matColumnDef="name">
+         <th mat-header-cell *matHeaderCellDef> UID </th>
+         <td mat-cell *matCellDef="let element  let i = index"> {{element._id[10]+i}} </td>
+       </ng-container>
+     
+       <!-- Weight Column -->
+       <ng-container matColumnDef="weight">
+         <th mat-header-cell *matHeaderCellDef> Sub Zone Name </th>
+         <td mat-cell *matCellDef="let element"> {{element.zoneName}} </td>
+       </ng-container>
+     
+       <!-- Symbol Column -->
+       <ng-container matColumnDef="symbol">
+         <th mat-header-cell *matHeaderCellDef> Latitude </th>
+         <td mat-cell *matCellDef="let element"> {{element.symbol}} ----- </td>
+       </ng-container>
+   <!-- 'longitude','status','stime','action' -->
+   <ng-container matColumnDef="longitude">
+       <th mat-header-cell *matHeaderCellDef> Longitude </th>
+       <td mat-cell *matCellDef="let element"> {{element.symbol}} ----- </td>
+     </ng-container>
+   
+     <ng-container matColumnDef="status">
+       <th mat-header-cell *matHeaderCellDef> Status </th>
+       <td mat-cell [ngStyle]="{color: element.status?'green':'red'}" *matCellDef="let element"> {{element.status ==true?"Actiive":"Deactivated"}} </td>
+     </ng-container>
+     <ng-container matColumnDef="stime">
+       <th mat-header-cell *matHeaderCellDef> server Time </th>
+       <td mat-cell *matCellDef="let element"> {{element.serverTime | date :'dd/mm/yyyy'}}
+     
+       </td>
+     </ng-container>
+     <ng-container matColumnDef="action">
+       <th mat-header-cell *matHeaderCellDef> Edit </th>
+       <td mat-cell  *matCellDef="let element "> 
+        
+           <button (click)="ZoneSetupEdit(element)" style="background:green" mat-mini-fab>
+               <mat-icon  style="color:white"class="mat-18">
+                   edit
+               </mat-icon>
+           </button>
+           
+       </td>
+     </ng-container>
+     <ng-container matColumnDef="delete">
+       <th mat-header-cell *matHeaderCellDef> Delete </th>
+       <td mat-cell  *matCellDef="let element "> 
+        
+           <button (click)="ZoneSetupDelete(element)" color="warn" mat-mini-fab>
+               <mat-icon class="mat-18">
+                   delete
+               </mat-icon>
+           </button>
+           
+       </td>
+     </ng-container>
+       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+       <tr mat-row  @fadeOut   *matRowDef="let row; columns: displayedColumns;"></tr>
+       <!-- <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row> -->
+       <!-- <mat-row (click)="onRowClick(row)" @fadeOut  *matRowDef="let row; columns: displayedColumns;"></mat-row> -->
+     </table>
+   
+   

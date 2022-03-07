@@ -1,0 +1,46 @@
+
+  
+  
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">
+        <ul class="list-group list-group-horizontal">
+          <li class="list-group-item">Dashboard</li>
+          <li class="list-group-item w-75">
+            <input class="w-100" matInput placeholder="Search here...">
+          </li>
+        </ul>
+      </th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of DashboardTable ;  let i = index">
+  
+        <th scope="row">
+          {{i+1}}
+        </th>
+      <td class="title-info">
+        <h3>{{item.title}}</h3>
+        <h4>{{item.location}}</h4>
+        <small style="color: red">
+          EMI NO : {{item.imeiNo}}
+        </small>
+      </td>
+      <td style="paddingTop: 40px;">
+        Power
+        <mat-slide-toggle color="warn"  [(ngModel)]="item.power"></mat-slide-toggle>
+      </td>
+      <td scope="row" style=" text-align:center;">
+        Go Live
+       <br>
+       <small style="paddingTop:10px">
+         {{item.date}}
+       </small>
+      </td>
+    </tr>
+  </tbody>
+</table>

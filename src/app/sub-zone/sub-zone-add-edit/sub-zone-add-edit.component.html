@@ -1,0 +1,44 @@
+
+  <form [formGroup]="form"   (ngSubmit)="onSubmit()">
+    <div class="container">
+    <h1 class="text-center">
+        {{check_update == true?" Update Sub Zone ":" Add Sub Zone "}}
+    </h1>
+    <div class="row mt-3">
+        <div class="col-md-12 mt-">
+          
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Sub Zone Name</mat-label>
+                      <input formControlName="zoneName" matInput placeholder="Name" >
+                    </mat-form-field>
+                  
+                
+                  
+        </div>
+        <div class="col-md-6">
+            
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Latitude</mat-label>
+                <input formControlName="latitude" matInput placeholder="Latitude" >
+              </mat-form-field>
+        </div>
+        <div class="col-md-6">
+           
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Longitude</mat-label>
+                <input formControlName="longitude" matInput placeholder="Longitude" >
+              </mat-form-field>
+        </div>
+        <div class="col-ma-12">
+
+            <button class="w-100 t" type="submit" [disabled]="form.invalid" mat-raised-button >
+                <mat-spinner  *ngIf="spinner" diameter="40" style="margin-left:150px"></mat-spinner>
+               <div  *ngIf="!spinner" class="">
+               {{check_update == false?" Update Sub Zone ":" Add Sub Zone "}}
+               </div>
+            </button>
+        </div>
+    </div>
+</div>
+</form>
+

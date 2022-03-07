@@ -1,0 +1,11 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <app-zone-setup-table [adddata]="sendData" ></app-zone-setup-table>
+        </div>
+        <div class="col-md-4 p-3">
+         <app-zone-setup-add-edit (addData)="onClose($event)"></app-zone-setup-add-edit>
+        </div>
+    </div>
+</div>
+
