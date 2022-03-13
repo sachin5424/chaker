@@ -1,0 +1,57 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <!-- <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>
+        </mat-card-title> -->
+        <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+    </mat-card-header>
+    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+    <div class="d-flex justify-content-around">
+        <h3 class="m-2"> DG: Log Data</h3>
+        <mat-form-field class="example-full-width   " appearance="outline">
+            <mat-label>From Date</mat-label>
+            <input matInput #message maxlength="256" type="date" placeholder="Ex. I need help with...">
+            <!-- <mat-error *ngIf="formError.installationDate">
+            {{formError.installationDate}}
+        </mat-error> -->
+        </mat-form-field>
+        <mat-form-field class="example-full-width  " appearance="outline">
+            <mat-label>To Date</mat-label>
+            <input matInput #message maxlength="256" type="date" placeholder="Ex. I need help with...">
+            <!-- <mat-error *ngIf="formError.installationDate">
+            {{formError.installationDate}}
+        </mat-error> -->
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="">
+            <mat-label>Type</mat-label>
+            <mat-select>
+                <!-- <mat-option *ngFor="let food of foods">
+            </mat-option> -->
+                <mat-option value="3G">3G</mat-option>
+                <mat-option value="4G">4G</mat-option>
+                <mat-option value="5G">5G</mat-option>
+            </mat-select>
+            <!-- <mat-error *ngIf="formError.deviceType">
+            {{formError.deviceType}}
+        </mat-error> -->
+
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="">
+            <mat-label>Location</mat-label>
+            <mat-select>
+                <!-- <mat-option *ngFor="let food of foods">
+            </mat-option> -->
+                <mat-option value="3G">3G</mat-option>
+                <mat-option value="4G">4G</mat-option>
+                <mat-option value="5G">5G</mat-option>
+            </mat-select>
+            <!-- <mat-error *ngIf="formError.deviceType">
+            {{formError.deviceType}}
+        </mat-error> -->
+
+        </mat-form-field>
+        <button mat-raised-button class="" color="primary">Search..</button>
+    </div>
+
+
+</mat-card>

@@ -1,0 +1,227 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Device Detail : {{data.deviceId}} | location : {{data.place}} | IMEI Number :
+            {{data.imeiNumber}} |</mat-card-title>
+        <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+    </mat-card-header>
+    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+
+    <mat-card-content>
+        <!-- PumpHp: "555fvdbg"
+        applicationType: "vfdgfh"
+        degTemperaure1: 0
+        degTemperaure2: 0
+        deviceId: "aimxkt"
+        deviceType: "4G"
+        dg: 0
+        doff: false
+        imeiNumber: 1231231231231111
+        installationDate: "1999-10-30T00:00:00.000Z"
+        location: {type: 'Point', coordinates: Array(0)}
+        operatorName: "Sachin Kumar"
+        operatorNumber: "9638527410"
+        place: "Haridwar"
+        power: true
+        pressure1KPA: 0
+        pressure2KPA: 0
+        pressureSetPoint1KPA: 0
+        pressureSetPoint2KPA: 0
+        serviceOverDate: "4654-06-22T00:00:00.000Z"
+        signalStrength: 0
+        silencer: 0
+        simNumber: "1236563"
+        smsNumber: "9897417410"
+        smsStatus: "active"
+        subZoneId: "622adf6f8c1f3fe6f9d3c4dc"
+        zoneId: "622adf338c1f3fe6f9d3c4d4"
+        __v: 0
+        _id: "622ae53c9677c52481a69b1a"
+         -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <header class="header1">Live Date</header>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <table class="table table-hover">
+                                    <tbody>
+                                        <tr>
+                                            <th>Power </th>
+                                            <td>
+                                                <mat-slide-toggle [(ngModel)]="data.power" (click)="powerUpdate(data.power)" color="warn">
+                                                </mat-slide-toggle>
+                                                {{data.power}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Mode </th>
+                                            <td> </td>
+                                        </tr>
+                                        <tr>
+                                            <th>DOFF </th>
+                                            <td> {{data.doff}} </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Slincer </th>
+                                            <td> {{data.silencer}} </td>
+                                        </tr>
+                                        <tr>
+                                            <th>DG </th>
+                                            <td> {{data.dg}} </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Tempratue 1 </th>
+                                            <td> {{data.degTemperaure1}} </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Tempratue 2 </th>
+                                            <td> {{data.degTemperaure2}} </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <div class="col-md-6">
+                                <table class="table table-hover">
+                                    <tbody>
+                                        <tr>
+                                            <th>Presure 1 (kPA) </th>
+                                            <td> {{data.pressure1KPA}} </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Presure 2 (kPA) </th>
+                                            <td> {{data.pressure2KPA}} </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Presure Set Point 1 (kPA) </th>
+                                            <td>{{data.pressureSetPoint1KPA}} </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Presure Set Point 2 (kPA) </th>
+                                            <td>{{data.pressureSetPoint2KPA}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Signal Strength </th>
+                                            <td>{{data.signalStrength}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Last String Data Stamp </th>
+                                            <td>{{data.lastStringDateStamp | date}} </td>
+                                        </tr>
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <header class="header1">Accutator</header>
+
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <header class="header1">D G Details</header>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <table class="table table-hover">
+                                    <tbody>
+                                        <tr>
+                                            <th>Zone Name </th>
+                                            <td>{{data.zoneId.zoneName}} </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Sub Zone Name </th>
+                                            <td>{{data.subZoneId.zoneName}} </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Location </th>
+                                            <td>{{data.place}}</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <div class="col-md-3">
+                                <table class="table table-hover">
+                                    <tbody>
+                                        <tr>
+                                            <th>IMEI Number </th>
+                                            <td>{{data.imeiNumber}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>SIM Number </th>
+                                            <td>{{data.simNumber}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Device Type </th>
+                                            <td> {{data.deviceType}} </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <div class="col-md-3">
+                                <table class="table table-hover">
+                                    <tbody>
+                                        <tr>
+                                            <th>DG Capicity </th>
+                                            <td> </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Latitude </th>
+                                            <td>{{data.location.coordinates[0]}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Longitude </th>
+                                            <td>{{data.location.coordinates[1]}}</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <div class="col-md-3">
+                                <table class="table table-hover">
+                                    <tbody>
+                                        <tr>
+                                            <th>Operator Name </th>
+                                            <td>{{data.operatorName}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Operator Number </th>
+                                            <td>{{data.operatorNumber}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Installation Date </th>
+                                            <td>{{data.installationDate | date}}</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </mat-card-content>
+    <!-- <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+    </mat-card-actions> -->
+</mat-card>

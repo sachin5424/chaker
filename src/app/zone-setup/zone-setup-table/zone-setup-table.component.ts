@@ -42,6 +42,7 @@ export class ZoneSetupTableComponent implements OnInit {
        this.dataSource[elementIndex].zoneName = data.zoneName
     });
   }
+  
   onRowClick(row: any) {
     this.dataSource = new MatTableDataSource(this.dataSource.data.filter((d: any) => d.id !== row.id));
   }
@@ -51,6 +52,8 @@ export class ZoneSetupTableComponent implements OnInit {
       {
         next: (data: any) => {
           this.dataSource = data.data
+          console.log(this.dataSource, "data");
+          
 
         }
       }

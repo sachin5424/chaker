@@ -1,38 +1,49 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DeviceDetailComponent } from './device-detail/device-detail.component';
 import { HomeComponent } from './home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { ReportComponent } from './report/report.component';
 
 const routes: Routes = [
   {
     path: '',
-    component:NavigationComponent,
+    component: NavigationComponent,
     children: [
-      { 
-        path:"home",
-        component:HomeComponent,
-      },
-      { 
-        path:"dasboard",
-        component:DashboardComponent,
+      {
+        path: "home",
+        component: HomeComponent,
       },
       {
-        path:"zone-setup",
-        loadChildren:() => import('../zone-setup/zone-setup.module').then(m=>m.ZoneSetupModule)
+        path: "dasboard",
+        component: DashboardComponent,
       },
       {
-        path:"sub-zone",
-        loadChildren:() => import('../sub-zone/sub-zone.module').then(m=>m.SubZoneModule)
+        path: "zone-setup",
+        loadChildren: () => import('../zone-setup/zone-setup.module').then(m => m.ZoneSetupModule)
       },
       {
-        path:"device-setup",
-        loadChildren:() => import('../device-setup/device-setup.module').then(m=>m.DeviceSetupModule)
+        path: "sub-zone",
+        loadChildren: () => import('../sub-zone/sub-zone.module').then(m => m.SubZoneModule)
       },
-      { path: '',   redirectTo: 'home', pathMatch: 'full' }, 
+      {
+        path: "device-setup",
+        loadChildren: () => import('../device-setup/device-setup.module').then(m => m.DeviceSetupModule),
+
+      },
+      {
+        path: "deviceDetail/:id",
+        component: DeviceDetailComponent
+      },
+      {
+        path: "report",
+        component: ReportComponent
+      },
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
     ]
   },
- 
+
 
 ];
 

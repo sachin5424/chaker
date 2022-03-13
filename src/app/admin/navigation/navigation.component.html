@@ -1,7 +1,4 @@
 
-
-
-
 <p>
   <mat-toolbar style="height:90px" color="primary">
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
@@ -14,7 +11,7 @@
     <button mat-button [routerLink]="['/admin/home']" routerLinkActive="router-link-active"  >Home</button>
 
 <button mat-button [routerLink]="['/admin/dasboard']" routerLinkActive="router-link-active">Dashboard</button>
-<button mat-button >Report</button>
+<button mat-button [routerLink]="['/admin/report']" >Report</button>
 
 <button mat-button [matMenuTriggerFor]="setup">Setup</button>
 <mat-menu #setup="matMenu">
