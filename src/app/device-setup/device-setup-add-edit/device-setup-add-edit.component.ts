@@ -128,19 +128,25 @@ export class DeviceSetupAddEditComponent implements OnInit {
               next: (data: any) => {
                 Swal.fire('Saved!', '', 'success')
                 this.spinner = false;
-
                 this._deviceService.addDataShared.next(data);
               },
               error: (err) => {
                 this.spinner = false;
                 console.log(err, "error>>>>>>>>>");
                 const errors: any = err.error.errors;
-                errors.map((item: any) => {
-                  this.formError[item.param] = item.msg;
-                })
-                if (this.formError['zoneName']) {
-
-                  Swal.fire('Cancelled', this.formError.zoneName, 'error');
+                if (errors) {
+                  errors.map((item: any) => {
+                    this.formError[item.param] = item.msg;
+                  })
+                }
+                if (this.formError) {
+                  // console.log(this.formError);
+                  Swal.fire('Cancelled', Object.keys(this.formError)[0] + " " + this.formError[Object.keys(this.formError)[0]], 'error').then((err) => {
+                    console.log(err, "error");
+                    errors.map((item: any) => {
+                      this.formError[item.param] = item.msg;
+                    })
+                  });
                 }
               },
             }

@@ -30,7 +30,7 @@ export class SubZoneAddEditComponent implements OnInit {
     });
     
   }
-
+name:any
   newForm() {
     this.check_update = false;
     this._SubZoneService.updateDataShared.unsubscribe();
