@@ -36,6 +36,7 @@ export class SubZoneTableComponent implements OnInit {
    
  
 
+
   }
   onRowClick(row:any) {
     this.dataSource = new MatTableDataSource(this.dataSource.data.filter((d:any) => d.id !== row.id));
