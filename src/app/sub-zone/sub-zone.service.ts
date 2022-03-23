@@ -10,7 +10,7 @@ export class SubZoneService {
     NewUpdateDataShared = new Subject();
     constructor(private _http: HttpClient) { }
     SubZoneList(): Observable<any> {
-        return this._http.get(environment.baseUrl + 'admin/list/sub-zone')
+        return this._http.get(environment.baseUrl + '/admin/list/sub-zone')
     }
     SubZoneAdd(data: any): Observable<any> {
         return this._http.post(environment.baseUrl + 'admin/add/sub-zone', data)

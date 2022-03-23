@@ -9,14 +9,14 @@ export class ZoneSetupService {
     updateDataShared = new Subject();
     constructor(private _http: HttpClient) { }
     ZoneSetupList():Observable<any>{
-     return this._http.get(environment.baseUrl + '/admin/list/zone-setup')
+     return this._http.get(environment.baseUrl + 'admin/list/zone-setup')
     }
     ZoneSetupAdd(data:any):Observable<any>{
-        return this._http.post(environment.baseUrl + '/admin/add/zone-setup',data)
+        return this._http.post(environment.baseUrl + 'admin/add/zone-setup',data)
        }
 
        ZoneSetupDelete(id:any):Observable<any>{
-        return this._http.delete(environment.baseUrl + '/admin/delete/zone-setup/'+id)
+        return this._http.delete(environment.baseUrl + 'admin/delete/zone-setup/'+id)
        }
        ZoneSetupUpdate(id:any,data:any):Observable<any>{
         return this._http.put(environment.baseUrl + 'admin/update/zone-setup/'+id,data)

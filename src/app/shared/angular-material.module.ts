@@ -14,8 +14,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatTableModule} from '@angular/material/table';
+import {MatSelectModule} from '@angular/material/select';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-const materialUi =[
+import {MatDialogModule} from '@angular/material/dialog';
+ const materialUi =[
   MatTableModule,
   MatFormFieldModule,
   MatInputModule,
@@ -32,14 +34,17 @@ const materialUi =[
   MatCardModule,
   MatMenuModule,
   MatSlideToggleModule,
-  MatProgressSpinnerModule
-
+  MatProgressSpinnerModule,
+  MatSelectModule,
+  MatDialogModule
 ]
 
 @NgModule({
   imports: [
     materialUi
   ],
-  exports: [materialUi]
+  exports: [materialUi],
+ 
+  
 })
 export class AngularMaterialModule { }

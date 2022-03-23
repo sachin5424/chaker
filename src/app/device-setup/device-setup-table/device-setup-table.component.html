@@ -1,1 +1,42 @@
-<p>device-setup-table works!</p>
+<div class="container-fluid">
+    <div class="table">
+        <table class="table table-hover m-3">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">S.No</th>
+                    <th scope="col">Add By </th>
+                    <th scope="col">Application </th>
+                    <th scope="col">Device Id </th>
+                    <th scope="col">Zone Name</th>
+                    <th scope="col">Sub Zone </th>
+                    <th scope="col">Location</th>
+                    <th scope="col">IMEI Number </th>
+                    <th scope="col">SIM Number </th>
+                    <th scope="col">Pump HP </th>
+                    <th scope="col">Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of data ;  let i = index">
+
+                    <td scope="row">
+                        {{i+1}}
+                    </td>
+                    <td> {{item.addBy}} </td>
+                    <td> {{item.applicationType}} </td>
+                    <td> {{item.deviceId}} </td>
+                    <td>{{item.zoneSetupName}} </td>
+                    <td>{{item.subZoneName}} </td>
+                    <td> {{item.place}} </td>
+                    <td> {{item.imeiNumber}} </td>
+                    <td> {{item.simNumber}} </td>
+                    <td> {{item.PumpHp}} </td>
+                    <td>
+                        <mat-icon aria-hidden="false" [routerLink]="['edit',item._id]" routerLinkActive="router-link-active"   aria-label="Example home icon">edit</mat-icon>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

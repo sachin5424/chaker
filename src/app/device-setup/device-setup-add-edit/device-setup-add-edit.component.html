@@ -1,1 +1,182 @@
-<p>device-setup-add-edit works!</p>
+<mat-card class="example-card">
+    <mat-card-title-group>
+        <mat-card-title>Setup Device : Add Manager (GD)</mat-card-title>
+        <!-- <mat-card-subtitle>Small</mat-card-subtitle> -->
+    </mat-card-title-group>
+    <mat-card-content>
+        <div class="container">
+            <form [formGroup]="deviceSetupForm" (ngSubmit)="update?updateDevice():onSubmit()">
+                <div class="row">
+                    <div class="col">
+                        <div class="w-100" style="margin:10px">
+                            <mat-form-field class="example-full-width w-75" appearance="outline">
+                                <mat-label>Divice Id</mat-label>
+                                <input matInput #message maxlength="256" placeholder="Ex. I need help with...">
+                            </mat-form-field> <br>
+                            <mat-form-field appearance="outline" class="w-75">
+                                <mat-label>Zone Name</mat-label>
+                                <mat-select formControlName="zoneId" name="food">
+                                    <mat-option value="{{food._id}}" *ngFor="let food of zoneList ">
+                                        {{food.zoneName}}
+                                    </mat-option>
+                                </mat-select>
+                                <mat-error *ngIf="formError.zoneId">
+                                    {{formError.zoneId}}
+                                </mat-error>
+                            </mat-form-field> <br>
+                            <mat-form-field appearance="outline" class="w-75">
+                                <mat-label>Sub Zone Name</mat-label>
+                                <mat-select formControlName="subZoneId" name="food">
+                                    <mat-option value="{{food._id}}" *ngFor="let food of subZoneList">
+                                        {{food.zoneName}}
+                                    </mat-option>
+                                </mat-select>
+                                <mat-error *ngIf="formError.subZoneId">
+                                    {{formError.subZoneId}}
+                                </mat-error>
+                            </mat-form-field><br>
+                            <mat-form-field class="example-full-width w-75" appearance="outline">
+                                <mat-label>Location</mat-label>
+                                <input matInput #message formControlName="place" maxlength="256"
+                                    placeholder="Ex. I need help with...">
+                                <mat-error *ngIf="formError.place">
+                                    {{formError.place}}
+                                </mat-error>
+                            </mat-form-field> <br>
+                            <mat-form-field class="example-full-width w-75" appearance="outline">
+                                <mat-label>IMEI Number</mat-label>
+                                <input formControlName="imeiNumber" matInput #message maxlength="256"
+                                    placeholder="Ex. I need help with...">
+                                <mat-error *ngIf="formError.imeiNumber">
+                                    {{formError.imeiNumber}}
+                                </mat-error>
+
+                            </mat-form-field> <br>
+                            <mat-form-field class="example-full-width w-75" appearance="outline">
+                                <mat-label>SIM Number</mat-label>
+                                <input formControlName="simNumber" matInput #message maxlength="256"
+                                    placeholder="Ex. I need help with...">
+                                <mat-error *ngIf="formError.simNumber">
+                                    {{formError.simNumber}}
+                                </mat-error>
+                            </mat-form-field> <br>
+                            <mat-form-field class="example-full-width w-75" appearance="outline">
+                                <mat-label>Pump HP</mat-label>
+                                <input formControlName="PumpHp" matInput #message maxlength="256"
+                                    placeholder="Ex. I need help with...">
+                                <mat-error *ngIf="formError.PumpHp">
+                                    {{formError.PumpHp}}
+                                </mat-error>
+                            </mat-form-field> <span class="m-2">Capicity Of Engine</span> <br>
+                            <mat-form-field appearance="outline" class="w-75">
+                                <mat-label>Application Type</mat-label>
+                                <mat-select formControlName="applicationType" name="food">
+                                    <!-- <mat-option *ngFor="let food of foods">
+
+                                    </mat-option> -->
+                                    <mat-option value="vfdgfh">3G</mat-option>
+
+                                </mat-select>
+                                <mat-error *ngIf="formError.applicationType">
+                                    {{formError.applicationType}}
+                                </mat-error>
+                            </mat-form-field> <br>
+                            <mat-form-field appearance="outline" class="w-75">
+                                <mat-label>Device Type</mat-label>
+                                <mat-select formControlName="deviceType">
+                                    <!-- <mat-option *ngFor="let food of foods">
+                                    </mat-option> -->
+                                    <mat-option value="3G">3G</mat-option>
+                                    <mat-option value="4G">4G</mat-option>
+                                    <mat-option value="5G">5G</mat-option>
+                                </mat-select>
+                                <mat-error *ngIf="formError.deviceType">
+                                    {{formError.deviceType}}
+                                </mat-error>
+
+                            </mat-form-field>
+                            <span class="m-2">4G/3G Modern </span>
+                            <br>
+                        </div>12
+                    </div>
+                    <div class="col">
+                        <div class="w-100">
+                            <mat-form-field class="example-full-width w-75" appearance="outline">
+
+                                <mat-label>Latitude</mat-label>
+                                <input matInput #message maxlength="256" placeholder="Ex. I need help with...">
+
+                            </mat-form-field> <br>
+                            <mat-form-field class="example-full-width w-75" appearance="outline">
+                                <mat-label>Longitude</mat-label>
+                                <input matInput #message maxlength="256" placeholder="Ex. I need help with...">
+
+                            </mat-form-field> <br>
+                            <mat-form-field class="example-full-width w-75" appearance="outline">
+                                <mat-label>Operator Name</mat-label>
+                                <input formControlName="operatorName" matInput #message maxlength="256"
+                                    placeholder="Ex. I need help with...">
+                                <mat-error *ngIf="formError.operatorName">
+                                    {{formError.operatorName}}
+                                </mat-error>
+                            </mat-form-field>
+                            <span class="m-2">Operator On Site </span>
+                            <br>
+                            <mat-form-field class="example-full-width w-75" appearance="outline">
+                                <mat-label>Operator Number</mat-label>
+                                <input formControlName="operatorNumber" matInput #message maxlength="256"
+                                    placeholder="Ex. I need help with...">
+                                <mat-error *ngIf="formError.operatorNumber">
+                                    {{formError.operatorNumber}}
+                                </mat-error>
+                            </mat-form-field>
+                            <span class="m-2">Operator On Site</span>
+
+                            <br>
+                            <mat-form-field class="example-full-width w-75" appearance="outline">
+                                <mat-label>Installation Date</mat-label>
+                                <input formControlName="installationDate" matInput #message maxlength="256" type="date"
+                                    placeholder="Ex. I need help with...">
+                                <mat-error *ngIf="formError.installationDate">
+                                    {{formError.installationDate}}
+                                </mat-error>
+                            </mat-form-field> <br>
+                            <mat-form-field class="example-full-width w-75" appearance="outline">
+                                <mat-label>Service Order Date</mat-label>
+                                <input formControlName="serviceOverDate" matInput #message maxlength="256" type="date"
+                                    placeholder="Ex. I need help with...">
+                                <mat-error *ngIf="formError.serviceOverDate">
+                                    {{formError.serviceOverDate}}
+                                </mat-error>
+                            </mat-form-field> <br>
+                            <mat-form-field class="example-full-width w-75" appearance="outline">
+                                <mat-label>SMS Number</mat-label>
+                                <input formControlName="smsNumber" matInput #message maxlength="256"
+                                    placeholder="Ex. I need help with...">
+                                <mat-error *ngIf="formError.smsNumber">
+                                    {{formError.smsNumber}}
+                                </mat-error>
+
+                            </mat-form-field>
+                            <span class="m-2"> Mobile numbers which will receive alert messages </span>
+
+                            <br>
+                            <mat-form-field appearance="outline" class="w-75">
+                                <mat-label>SMS Status</mat-label>
+
+                                <mat-select formControlName="smsStatus" name="food">
+                                    <mat-option value="active">Active</mat-option>
+                                    <mat-option value="inactive">Pending</mat-option>
+                                </mat-select>
+                                <mat-error *ngIf="formError.smsStatus">
+                                    {{formError.smsStatus}}
+                                </mat-error>
+                            </mat-form-field> <br>
+                            <button type="submit" mat-stroked-button class="mt-5 w-25" color="primary">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </mat-card-content>
+</mat-card>

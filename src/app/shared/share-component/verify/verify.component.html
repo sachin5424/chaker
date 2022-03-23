@@ -1,0 +1,11 @@
+<div class="example-container">
+    <form [formGroup]="form" (ngSubmit)="Submit()">
+        <mat-form-field appearance="fill">
+            <mat-label>Enter your password</mat-label>
+            <input matInput formControlName="email" required>
+        </mat-form-field>
+        <mat-error *ngIf="msg.err">{{msg.err}}</mat-error>
+        <br>
+         <button mat-button color="primary">Submit Password</button>
+     </form>
+</div>

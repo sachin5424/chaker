@@ -47,6 +47,7 @@ export class SubZoneTableComponent implements OnInit {
        {
          next: (data:any)=>{
            this.dataSource = data.data
+           console.log(this.dataSource,"data");
            
          }
        }
