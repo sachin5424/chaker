@@ -1,0 +1,143 @@
+
+<div class="m-2">
+    <button color="primary" [routerLink]="['/admin/account-setup']" routerLinkActive="router-link-active"  mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+</div>
+<h1 class="m-4 text-center">
+    Account Setup Add
+ 
+</h1>
+
+ <form class="example-form" [formGroup]="accountSetupForm" (ngSubmit)="saveForm()">
+    <div class="alert alert-success m-3" *ng-if="successForm.message" role="alert">
+        {{successForm.message}}
+      </div>
+<div class="container-fluid m-3" >
+   
+    <div class="row p-5"  style="transform:scale(0.9);border:2px solid #673ab7">
+        <div class="col-md-4">
+            <mat-form-field class="example-full-width w-100" appearance="outline">
+              <mat-label>User Name</mat-label>
+              <input matInput formControlName="username" placeholder="username" >
+              <div [@animation]="_state" class="">
+
+              </div>
+              <mat-error *ngIf="formError.username" >
+                  {{formError.username}}
+              </mat-error>
+            </mat-form-field>
+            <p>
+                kjsdh
+            </p>
+    </div>
+        <div class="col-md-4">
+            <mat-form-field class="example-full-width w-100" appearance="outline">
+                <mat-label>First Name</mat-label>
+                <input matInput formControlName="firstName" placeholder="First Name" type="text">
+                <mat-error >
+                    {{formError.firstName}}
+                </mat-error>
+              </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="example-full-width w-100" appearance="outline">
+                <mat-label>Last Name</mat-label>
+                <input matInput formControlName="lastName" placeholder="Last Name" type="text">
+                <mat-error >
+                    {{formError.lastName}}
+                </mat-error>
+              </mat-form-field>
+        </div>
+  
+        <div class="col-md-4">
+            <mat-form-field class="example-full-width w-100" appearance="outline">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email" placeholder="email" >
+              <mat-error >
+                {{formError.email}}
+            </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="example-full-width w-100" appearance="outline">
+            <mat-select  formControlName="gender" placeholder="select gender" >
+                <mat-option >......</mat-option>
+                <mat-option  value="male">Male</mat-option>
+                <mat-option  value="female">Female</mat-option>
+                <mat-option value="other">Other</mat-option>
+            </mat-select>
+            <mat-error >
+                {{formError.gender}}
+            </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="example-full-width w-100" appearance="outline">
+                <mat-label>Mobile Number</mat-label>
+                <span matPrefix>+91&nbsp;</span>
+                <input  formControlName="mobile"  type="tel" matInput placeholder="555-555-1234">
+                <!-- <mat-icon matSuffix>mode_edit</mat-icon> -->
+                <mat-error >
+                    {{formError.mobile}}
+                </mat-error>
+            </mat-form-field>
+       
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="example-full-width w-100" appearance="outline">
+              <mat-label>Application</mat-label>
+              <input formControlName="application" matInput placeholder="application" >
+              <mat-error >
+                {{formError.application}}
+            </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="example-full-width w-100" appearance="outline">
+                <mat-label>Company Name</mat-label>
+                <input  formControlName="companyName" matInput placeholder="Company Name" >
+                <mat-error >
+                    {{formError.companyName}}
+                </mat-error>
+              </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="example-full-width w-100" appearance="outline">
+                <mat-label>Enter your password</mat-label>
+                <input formControlName="password" matInput [type]="hide ? 'password' : 'text'">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error >
+                    {{formError.password}}
+                </mat-error>
+              </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="example-full-width w-100" appearance="outline">
+                <mat-label>Enter your password</mat-label>
+                <input  formControlName="confirmPassword" matInput [type]="hide ? 'password' : 'text'">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                
+              </mat-form-field>
+        </div>
+     
+        <div class="col-md-5">
+            <button mat-raised-button type="submit"  color="primary">save</button>
+        </div>
+    </div>
+</div>
+
+</form>
+<!-- 
+
+"username":"sachin",
+"password":"897",
+"email":"test2@gmail.com",
+"gender":"male",
+"companyName":"test company",
+"application":"Test application",
+"status":"active" -->

@@ -1,0 +1,12 @@
+<button mat-raised-button class="m-3" [routerLink]="['add-account']" *ngIf="ADD_PERMISSIONS" routerLinkActive="router-link-active" >Add User</button>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <app-account-setup-table [View_Item_Permissions]="VIEW_PERMISSIONS" [Delete_Item_Permissions]="DELETE_PERMISSIONS"  [Update_Item_Permissions]="UPDATE_PERMISSIONS"></app-account-setup-table>
+    </div>
+  </div>
+</div>
+
+  
+
+  

@@ -12,8 +12,9 @@ import { ReportComponent } from './report/report.component';
 
 
 
+
 @NgModule({
-  declarations: [NavigationComponent, DashboardComponent, HomeComponent, DeviceDetailComponent, ReportComponent],
+  declarations: [NavigationComponent, DashboardComponent, HomeComponent, DeviceDetailComponent, ReportComponent, ],
   imports: [
     CommonModule,
     AdminRoutingModule,

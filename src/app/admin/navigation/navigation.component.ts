@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-navigation',
@@ -20,7 +22,7 @@ export class NavigationComponent {
   zoneSetupbutton:any[] =
   [
     {
-      title: 'Account setup'
+      title: 'Account setup',route:"/admin/account-setup"
     },
     {
       title: 'Zone Setup ',
@@ -33,7 +35,7 @@ export class NavigationComponent {
       title: 'Device Setup',route:"/admin/device-setup"
     },
     {
-      title: 'Device Access Setup'
+      title: 'Device Access Setup',route:"/admin/device-access-setup"
     }
   ]
 
@@ -43,7 +45,11 @@ export class NavigationComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver,private _router:Router) {
+  constructor(private breakpointObserver: BreakpointObserver,private _router:Router,private _http:HttpClient) {
+    this.CheckSubZonePermission().subscribe((result:any) => {
+      console.log(result,"?>?>?<>><>><>><><><><><><><><><><><><><><><><><><><><><><>");
+      
+    })
 
   }
   logout(){
@@ -74,4 +80,8 @@ export class NavigationComponent {
   zoneSetupRoutes(route:string){
     this._router.navigate([route]);
   }
+  CheckSubZonePermission(){
+    return this._http.get(environment.baseUrl + '/admin/user/all/permission')
+}
+  
 }

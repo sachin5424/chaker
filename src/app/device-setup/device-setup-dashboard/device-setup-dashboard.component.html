@@ -5,9 +5,12 @@
                 <div class="d-flex justify-content-end " style="margin-right:3%"> 
                     <!-- <button (click)="onClick()" mat-stroked-button>Device
                         Listing</button> -->
-                        <a [routerLink]="['add']" routerLinkActive="router-link-active" >Add</a>
+                        <a [routerLink]="['add']" mat-raised-button color="primary" routerLinkActive="router-link-active" >Add</a>
                     </div>
-                <app-device-setup-table></app-device-setup-table>
+                    <mat-card class="my-3">
+
+                        <app-device-setup-table></app-device-setup-table>
+                    </mat-card>
             </div>
         </div>
     </div>

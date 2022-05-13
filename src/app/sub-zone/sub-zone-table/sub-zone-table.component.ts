@@ -10,8 +10,11 @@ import Swal from 'sweetalert2';
   animations: [fadeOut, blub],
 })
 export class SubZoneTableComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol','longitude','status','stime','action','delete'];
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol','longitude','status','stime','action','delete',];
   dataSource:any;
+  @Input() Update_Permissions:boolean = false
+  @Input() Delete_Permissions:boolean = false;
+  @Input() View_Permissions:boolean = false
   @Input() adddata!: any;
   constructor(private _SubZoneService:SubZoneService) { 
     console.log(this.adddata,"jhgfds");
@@ -28,7 +31,16 @@ export class SubZoneTableComponent implements OnInit {
     
   }
   ngOnInit(): void {
-    this.ZoneSetupList();
+    if(this.View_Permissions == false){
+       this.dataSource = []
+    }
+    else{
+      this.ZoneSetupList();
+      
+    }
+    console.log(this.View_Permissions);
+    
+   
     this._SubZoneService.addDataShared.subscribe((data:any)=>{
    
       this.dataSource = [...this.dataSource,data.data]

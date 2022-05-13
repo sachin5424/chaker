@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SubZoneService } from '../sub-zone.service'
 import { Router } from '@angular/router';
@@ -9,6 +9,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./sub-zone-add-edit.component.css']
 })
 export class SubZoneAddEditComponent implements OnInit {
+  @Input() Add_Permissions:boolean = false
+
   spinner: boolean = false;
   formError: any = {};
   upDateData: any = {}
@@ -47,6 +49,9 @@ name:any
 
   ngOnInit(): void {
     this.createForm()
+    if(this.Add_Permissions == false){
+      this.form.disable()
+    }
   }
   onSubmit() {
     this.spinner = true;

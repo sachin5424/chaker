@@ -33,6 +33,16 @@ const routes: Routes = [
 
       },
       {
+        path: "account-setup",
+        loadChildren: () => import('./account-setup/account-setup.module').then(m => m.AccountSetupModule),
+
+      },
+      {
+        path: "device-access-setup",
+        loadChildren: () => import('./device-access-setup/device-access-setup.module').then(m => m.DeviceAccessSetupModule),
+
+      },
+      {
         path: "deviceDetail/:id",
         component: DeviceDetailComponent
       },

@@ -1,0 +1,45 @@
+<h2 mat-dialog-title>
+    DEVICE ACCESS PERMISSIONS
+</h2>
+<mat-dialog-content class="mat-typography">
+<div class="container">
+    <div class="row  justify-content-md-center">
+    
+        <div class="col-md-8">
+            <span>
+                <h1>username</h1>
+            </span>
+            <form [formGroup]="userForm">
+                <div class="form-group">
+                    <label for=""></label>
+                    <select class="form-control" name="" id="" formControlName="userId">
+                        <option selected>select user</option>
+                      <option *ngFor="let item of userList"  value="{{item._id}}">{{item.username}}</option>
+                    </select>
+                  </div>
+            </form>
+           
+        </div>
+    </div>
+</div>
+<div class="container" style="transform:scale(0.9)">
+    <div class="row">
+        <div  #items class="col-md-4 p-3" *ngFor="let item of testData; let i = index">
+            <section class="example-section">
+                <mat-checkbox  [checked]="item.checked" class="example-margin">
+                    {{item.title | uppercase}}
+                    {{tempPermissionsID[i] ==item._id}}
+                </mat-checkbox>
+        
+              </section>         
+        </div>
+      
+          
+    </div>
+</div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button> -->
+  <button mat-button (click)="addPermission()">Install</button>
+</mat-dialog-actions>

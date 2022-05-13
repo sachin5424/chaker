@@ -8,6 +8,26 @@ export class SubZoneService {
     addDataShared = new Subject();
     updateDataShared = new Subject();
     NewUpdateDataShared = new Subject();
+    permission: any[] = [
+        {
+            model_name: 'sub_zones',
+            method: 'POST',
+        },
+        {
+            model_name: 'sub_zones',
+            method: 'GET',
+        },
+        {
+            model_name: 'sub_zones',
+            method: 'DELETE',
+        },
+        {
+            model_name: 'sub_zones',
+            method: 'PUT',
+        }
+    ]
+    // moduleName: payload.moduleName,
+    // userId: getRequest.userId,
     constructor(private _http: HttpClient) { }
     SubZoneList(): Observable<any> {
         return this._http.get(environment.baseUrl + '/admin/list/sub-zone')
@@ -18,7 +38,10 @@ export class SubZoneService {
     SubZoneDelete(id: any): Observable<any> {
         return this._http.delete(environment.baseUrl + 'admin/delete/sub-zone/' + id)
     }
-    SubZoneUpdate(id: any,data:any): Observable<any> {
-        return this._http.put(environment.baseUrl + 'admin/update/sub-zone/' + id,data)
+    SubZoneUpdate(id: any, data: any): Observable<any> {
+        return this._http.put(environment.baseUrl + 'admin/update/sub-zone/' + id, data)
+    }
+    CheckSubZonePermission() {
+        return this._http.post(environment.baseUrl + 'admin/user/check/permission', this.permission)
     }
 }

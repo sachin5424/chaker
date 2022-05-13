@@ -17,7 +17,10 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSelectModule} from '@angular/material/select';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatCheckboxModule} from '@angular/material/checkbox';
  const materialUi =[
+  MatCheckboxModule,
   MatTableModule,
   MatFormFieldModule,
   MatInputModule,
@@ -36,7 +39,8 @@ import {MatDialogModule} from '@angular/material/dialog';
   MatSlideToggleModule,
   MatProgressSpinnerModule,
   MatSelectModule,
-  MatDialogModule
+  MatDialogModule,
+  MatExpansionModule
 ]
 
 @NgModule({

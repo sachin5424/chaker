@@ -28,11 +28,15 @@
       </div>
       <div class="col-ma-12">
 
-        <button class="w-100 t" type="submit" [disabled]="form.invalid" mat-raised-button>
+        <button *ngIf="Add_Permissions" class="w-100 t" type="submit" [disabled]="form.invalid" mat-raised-button>
           <mat-spinner *ngIf="spinner" diameter="40" style="margin-left:150px"></mat-spinner>
           <div *ngIf="!spinner" class="">
-            {{check_update == false?" Update Sub Zone ":" Add Sub Zone "}}
+            {{check_update == false?" Add Sub Zone ":" Update Sub Zone "}}
           </div>
+        </button>
+        <button *ngIf="!Add_Permissions" [disabled]="true" class="w-100 t" type="submit"  mat-raised-button>
+          <!-- <mat-spinner *ngIf="spinner" diameter="40" style="margin-left:150px"></mat-spinner> -->
+          Add Sub Zone 
         </button>
       </div>
     </div>

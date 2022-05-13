@@ -1,0 +1,102 @@
+<table mat-table *ngIf="View_Item_Permissions" [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="username">
+      <th mat-header-cell *matHeaderCellDef> Username </th>
+      <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="gender">
+      <th mat-header-cell *matHeaderCellDef> Gender </th>
+      <td mat-cell *matCellDef="let element"> {{element.gender?element.gender:'-----------'}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="mobile">
+      <th mat-header-cell *matHeaderCellDef> Mobile No </th>
+      <td mat-cell *matCellDef="let element"> {{element.MobileNumber? element.MobileNumber:'-----------'}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="password">
+      <th mat-header-cell *matHeaderCellDef> Password </th>
+      <td mat-cell  *matCellDef="let element"> 
+        {{temp[element._id]== false ? element.password : '*****'}}
+       
+        <span>
+          <mat-icon style="font-size:15px" (click)="passwordToggle(element._id)">remove_red_eye</mat-icon>
+        </span>
+     
+          <!-- {{element.password}} -->
+      <!-- ********       -->
+    </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="role">
+      <th mat-header-cell *matHeaderCellDef> role </th>
+      <td mat-cell [ngStyle]="{color: element.profile.status?'green':'red' }" *matCellDef="let element"> {{element.userTpe}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="company">
+      <th mat-header-cell *matHeaderCellDef> company </th>
+      <td mat-cell *matCellDef="let element"> {{element.profile.companyName}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="application">
+      <th mat-header-cell *matHeaderCellDef> application </th>
+      <td mat-cell *matCellDef="let element"> {{element.profile.application}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="account">
+      <th mat-header-cell *matHeaderCellDef> acount </th>
+      <td mat-cell [ngStyle]="{color: element.profile.status?'green':'red' }" *matCellDef="let element"> {{element.symbol?element.symbol:'View Only'}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef> status </th>
+      <td mat-cell style="text-transform: uppercase;" [ngStyle]="{color: element.profile.status?'green':'red' }" *matCellDef="let element"> {{element.profile.status?element.profile.status:'-----------'}} </td>
+    </ng-container>
+    
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Delete </th>
+      <td mat-cell *matCellDef="let element">
+        <!-- {{Delete_Item_Permissions}} -->
+       <button *ngIf="Delete_Item_Permissions" color="warn" mat-icon-button >
+           <mat-icon  class="mat-18">delete</mat-icon>
+       </button>  
+       <button *ngIf="!Delete_Item_Permissions" color="warn" mat-icon-button >
+        <mat-icon  class="mat-18">delete</mat-icon>
+    </button>    
+       
+    </td>
+    </ng-container>
+    
+
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef> action </th>
+      <td mat-cell *matCellDef="let element">
+       <!-- {{Update_Item_Permissions}} -->
+       <button  *ngIf="Update_Item_Permissions" color="primary" mat-icon-button >
+        <mat-icon [routerLink]="['edit/', element._id]"
+        routerLinkActive="router-link-active" class="mat-18">edit</mat-icon>
+    </button>   
+    <button  *ngIf="!Update_Item_Permissions" [disabled]="true" color="primary" mat-icon-button >
+      <mat-icon   class="mat-18">edit</mat-icon>
+  </button>     
+    </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
