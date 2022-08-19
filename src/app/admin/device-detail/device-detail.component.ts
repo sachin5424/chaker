@@ -16,6 +16,7 @@ export class DeviceDetailComponent implements OnInit {
   data: any = {}
   Latval:any 
   power: any
+  dataSource:any
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     this.getDeviceDetail()
@@ -26,6 +27,7 @@ export class DeviceDetailComponent implements OnInit {
     this._deviceService.deviceDetail(this.id).subscribe((res: any) => {
       console.log(res);
       this.data = res.data[0]
+      this.dataSource= this.data.timelog
       this.power = this.data.power
       this.Latval = res.data[0].location
       console.log(this.Latval , "lat");

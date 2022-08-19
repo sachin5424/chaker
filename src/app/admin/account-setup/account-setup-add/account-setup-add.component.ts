@@ -54,6 +54,7 @@ export class AccountSetupAddComponent implements OnInit {
       this._accountSetupService.postUserRegister(this.accountSetupForm.value).subscribe((result:any) => {
         console.log(result);
          this.successForm['message'] = result.message
+         this.accountSetupForm.reset();
       },(err) => {
         console.log(err,"???error");
          const errors = err.error.errors;
